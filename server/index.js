@@ -2,7 +2,11 @@ const express = require("express");
 const expressGraphQL = require("express-graphql");
 const schema = require("./schema/schema");
 const mongoose = require("mongoose");
+const cors = require("cors");
 const app = express();
+
+// allow cross-origin request
+app.use(cors());
 
 // connect to mlab db
 mongoose.connect(

@@ -99,6 +99,8 @@ const Mutation = new GraphQLObjectType({
         authorId: { type: new GraphQLNonNull(GraphQLID) }
       },
       resolve(parent, args) {
+        console.log(args);
+
         let book = new Book({
           name: args.name,
           genre: args.genre,
