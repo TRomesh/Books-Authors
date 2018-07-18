@@ -4,13 +4,14 @@ const schema = require("./schema/schema");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const app = express();
+require('dotenv').config();
 
 // allow cross-origin request
 app.use(cors());
 
 // connect to mlab db
 mongoose.connect(
-  "mongodb://tenant:tenant123@ds237641.mlab.com:37641/playlistdb",
+  "mongodb://"+process.env.DB_USER+":"+process.env.DB_PASS+"@ds237641.mlab.com:37641/"+process.env.DB_NAME,
   { useNewUrlParser: true }
 );
 mongoose.connection.once("open", () => {
